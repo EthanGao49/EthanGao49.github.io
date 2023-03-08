@@ -20,28 +20,34 @@
     var CONFIG = {"hostname":"ethangao49.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Ethan Gao&#39;s Blog">
-<meta property="og:url" content="https://ethangao49.github.io/index.html">
+  <meta name="description" content="Local variable errorIf you’re getting a local variable [var] reference before assignment error:This happens because in Python, you aren’t normally allowed to modify variables defined in parent frames.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Common Mistakes in Coding">
+<meta property="og:url" content="https://ethangao49.github.io/2023/03/08/Common-Mistakes-in-Coding/index.html">
 <meta property="og:site_name" content="Ethan Gao&#39;s Blog">
+<meta property="og:description" content="Local variable errorIf you’re getting a local variable [var] reference before assignment error:This happens because in Python, you aren’t normally allowed to modify variables defined in parent frames.">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-03-08T05:13:55.000Z">
+<meta property="article:modified_time" content="2023-03-08T07:23:00.752Z">
 <meta property="article:author" content="Ethan Gao">
+<meta property="article:tag" content="Code Art">
+<meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://ethangao49.github.io/">
+<link rel="canonical" href="https://ethangao49.github.io/2023/03/08/Common-Mistakes-in-Coding/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Ethan Gao's Blog</title>
+  <title>Common Mistakes in Coding | Ethan Gao's Blog</title>
   
 
 
@@ -149,9 +155,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
@@ -167,10 +174,9 @@
       <meta itemprop="name" content="Ethan Gao's Blog">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/03/08/Common-Mistakes-in-Coding/" class="post-title-link" itemprop="url">Common Mistakes in Coding</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          Common Mistakes in Coding
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -194,7 +200,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Local-variable-error"><a href="#Local-variable-error" class="headerlink" title="Local variable error"></a>Local variable error</h2><p>If you’re getting a <em>local variable [var] reference before assignment error</em>:<br>This happens because in Python, you aren’t normally allowed to modify variables defined in parent frames. Instead of reassigning [var], the interpreter thinks you’re trying to define a new variable within the current frame. We’ll learn about how to work around this in a future lecture, but it is not required for this problem.</p>
+        <h2 id="Local-variable-error"><a href="#Local-variable-error" class="headerlink" title="Local variable error"></a>Local variable error</h2><p>If you’re getting a <em>local variable [var] reference before assignment error</em>:<br>This happens because in Python, you aren’t normally allowed to modify variables defined in parent frames. Instead of reassigning [var], the interpreter thinks you’re trying to define a new variable within the current frame. We’ll learn about how to work around this in a future lecture, but it is not required for this problem.</p>
 <p>To fix this, you have two options:</p>
 <ol>
 <li><p>Rather than reassigning [var] to its new value, create a new variable to hold that new value. Use that new variable in future calculations.</p>
@@ -212,261 +218,34 @@
 <h2 id="Arbitrary-numbers-of-arguments"><a href="#Arbitrary-numbers-of-arguments" class="headerlink" title="Arbitrary numbers of arguments"></a>Arbitrary numbers of arguments</h2><p>Instead of listing formal parameters for a function, you can write *args. To call another function using exactly those arguments, you call it again with *args. For example:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">def</span> <span class="title function_">printed</span>(<span class="params">f</span>):</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">def</span> <span class="title function_">print_and_return</span>(<span class="params">*args</span>):</span><br><span class="line"><span class="meta">... </span>        result = f(*args)</span><br><span class="line"><span class="meta">... </span>        <span class="built_in">print</span>(<span class="string">&#x27;Result:&#x27;</span>, result)</span><br><span class="line"><span class="meta">... </span>        <span class="keyword">return</span> result</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> print_and_return</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>printed_pow = printed(<span class="built_in">pow</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>printed_pow(<span class="number">2</span>, <span class="number">8</span>)</span><br><span class="line">Result: <span class="number">256</span></span><br><span class="line"><span class="number">256</span></span><br></pre></td></tr></table></figure>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/Code-Art/" rel="tag"># Code Art</a>
+              <a href="/tags/Python/" rel="tag"># Python</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ethangao49.github.io/2023/03/07/Readability-in-Software-Engineering/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Ethan Gao">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ethan Gao's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/03/07/Readability-in-Software-Engineering/" class="post-title-link" itemprop="url">Readability in Software Engineering</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2023-03-07 21:37:36 / Modified: 22:14:09" itemprop="dateCreated datePublished" datetime="2023-03-07T21:37:36+08:00">2023-03-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CS61A/" itemprop="url" rel="index"><span itemprop="name">CS61A</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>The ease by which other people can read and understand a program (often called “readability” in software engineering) is perhaps the most important quality of a program.</p>
-<h2 id="Name-and-Variables"><a href="#Name-and-Variables" class="headerlink" title="Name and Variables"></a>Name and Variables</h2><ul>
-<li>variable and function names should be <strong>self-descriptive</strong></li>
-<li>Use one-letter names and abbreviations is okay for indices, mathematical symbols</li>
-<li>Avoid using single ‘O’ or ‘l’ as a name</li>
-<li>Avoid unnecessary variables:<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#   Good</span></span><br><span class="line"><span class="keyword">return</span> answer(argument)</span><br><span class="line"></span><br><span class="line"><span class="comment">#   Bad</span></span><br><span class="line">result = answer(arguemt)</span><br><span class="line"><span class="keyword">return</span> result</span><br></pre></td></tr></table></figure></li>
-<li>Don’t leave profanity in your code.</li>
-<li>Use lower_case_and_underscores for variables and functions:</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/03/07/Readability-in-Software-Engineering/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ethangao49.github.io/2023/03/06/Recursive-Function/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Ethan Gao">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ethan Gao's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/03/06/Recursive-Function/" class="post-title-link" itemprop="url">Recursive Function</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-03-06 13:00:38" itemprop="dateCreated datePublished" datetime="2023-03-06T13:00:38+08:00">2023-03-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-07 13:37:02" itemprop="dateModified" datetime="2023-03-07T13:37:02+08:00">2023-03-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CS61A/" itemprop="url" rel="index"><span itemprop="name">CS61A</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Recursive-Function"><a href="#Recursive-Function" class="headerlink" title="Recursive Function"></a>Recursive Function</h2><p><strong>definition</strong>: A function is called recursive if the body of function calls the function itself.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">sum_digits</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">if</span> n &lt; <span class="number">10</span>:</span><br><span class="line">        <span class="keyword">return</span> n</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        all_but_last, last = n//<span class="number">10</span>, n%<span class="number">10</span></span><br><span class="line">        <span class="keyword">return</span> sum_digits(all_but_last) + last</span><br></pre></td></tr></table></figure>
-
-<p>advantages:</p>
-<ul>
-<li>avoiding the nuisance of assigning local names</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/03/06/Recursive-Function/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/03/07/Readability-in-Software-Engineering/" rel="prev" title="Readability in Software Engineering">
+      <i class="fa fa-chevron-left"></i> Readability in Software Engineering
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ethangao49.github.io/2023/03/05/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Ethan Gao">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ethan Gao's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/03/05/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-03-05 18:25:42" itemprop="dateCreated datePublished" datetime="2023-03-05T18:25:42+08:00">2023-03-05</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
   
 
 
@@ -519,6 +298,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Local-variable-error"><span class="nav-number">1.</span> <span class="nav-text">Local variable error</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Arbitrary-numbers-of-arguments"><span class="nav-number">2.</span> <span class="nav-text">Arbitrary numbers of arguments</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
